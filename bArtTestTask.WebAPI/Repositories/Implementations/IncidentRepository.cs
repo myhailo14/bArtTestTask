@@ -7,8 +7,8 @@ namespace bArtTestTask.WebAPI.Repositories.Implementations;
 
 public class IncidentRepository : IIncidentRepository
 {
-    protected readonly DbContext _context;
-    protected readonly DbSet<Incident> _incidents;
+    private readonly DbContext _context;
+    private readonly DbSet<Incident> _incidents;
 
     public IncidentRepository(DbContext context)
     {

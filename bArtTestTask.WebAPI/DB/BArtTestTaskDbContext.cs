@@ -20,7 +20,9 @@ public class BArtTestTaskDbContext : DbContext
         {
             ib.HasKey(i => i.Name);
             
-            ib.Property(i => i.Name).HasColumnName("name").HasColumnType("NVARCHAR(36)").ValueGeneratedOnAdd().HasDefaultValueSql("CAST(NewId() as varchar(36))");
+            ib.Property(i => i.Name).HasColumnName("name")
+                .HasColumnType("NVARCHAR(36)")
+                .ValueGeneratedOnAdd();
             ib.Property(i => i.Description).HasColumnName("description").HasColumnType("NVARCHAR(255)");
             
             ib.HasMany(i => i.Accounts).WithOne(a => a.Incident);
@@ -32,7 +34,7 @@ public class BArtTestTaskDbContext : DbContext
             ab.HasKey(a => a.Id);
             ab.HasIndex(a => a.Name).IsUnique();
             
-            ab.Property(a => a.Id).HasColumnName("id").ValueGeneratedOnAdd().HasDefaultValueSql("NEWID()");
+            ab.Property(a => a.Id).HasColumnName("id").ValueGeneratedOnAdd();
             ab.Property(a => a.Name).HasColumnName("name").HasColumnType("NVARCHAR(50)");
             ab.Property<string>("IncidentName").HasColumnName("incident_name").HasColumnType("NVARCHAR(36)");
             
@@ -47,7 +49,7 @@ public class BArtTestTaskDbContext : DbContext
             
             cb.HasIndex(c => c.Email).IsUnique();
 
-            cb.Property(c => c.Id).HasColumnName("id").ValueGeneratedOnAdd().HasDefaultValueSql("NEWID()");;
+            cb.Property(c => c.Id).HasColumnName("id").ValueGeneratedOnAdd();
             cb.Property(c => c.Email).HasColumnName("email").HasColumnType("NVARCHAR(50)");
             cb.Property(c => c.FirstName).HasColumnName("first_name").HasColumnType("NVARCHAR(50)");
             cb.Property(c => c.LastName).HasColumnName("last_name").HasColumnType("NVARCHAR(50)");

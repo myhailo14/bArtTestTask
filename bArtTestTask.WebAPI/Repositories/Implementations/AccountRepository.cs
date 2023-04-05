@@ -7,8 +7,8 @@ namespace bArtTestTask.WebAPI.Repositories.Implementations;
 
 public class AccountRepository : IAccountRepository
 {
-    protected readonly DbContext _context;
-    protected readonly DbSet<Account> _accounts;
+    private readonly DbContext _context;
+    private readonly DbSet<Account> _accounts;
 
     public AccountRepository(DbContext context)
     {

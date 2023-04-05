@@ -7,8 +7,8 @@ namespace bArtTestTask.WebAPI.Repositories.Implementations;
 
 public class ContactRepository : IContactRepository
 {
-    protected readonly DbContext _context;
-    protected readonly DbSet<Contact> _contacts;
+    private readonly DbContext _context;
+    private readonly DbSet<Contact> _contacts;
 
     public ContactRepository(DbContext context)
     {

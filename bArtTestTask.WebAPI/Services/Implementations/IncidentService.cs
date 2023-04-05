@@ -46,18 +46,10 @@ public class IncidentService : IIncidentService
         var contact = await _contactRepository.GetFirsOrDefaultAsync(c => c.Email == request.ContactEmail);
         if (contact != null)
         {
-            // contact = new Contact
-            // {
-            //     Account = account,
-            //     Email = contact.Email,
-            //     FirstName = request.ContactFirstName,
-            //     LastName = request.ContactLastName,
-            //     Id = contact.Id
-            // };
             contact.Account = account;
             contact.FirstName = request.ContactFirstName;
             contact.LastName = request.ContactLastName;
-            
+
             await _contactRepository.UpdateAsync(contact);
 
             var newIncident = new Incident
